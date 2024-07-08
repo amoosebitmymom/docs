@@ -17,8 +17,15 @@ runai [flags]
 ## Installing the Improved Command Line Interface
 
 !!! Note
-    * Make sure the flag for the enhanced command line interface is enabled. To enable the Improved Command Line Interface Press the *Tools and Settings* icon, then *General*, then *Workloads*, then enable the *Improved Command Line Interface* toggle.
+
+    * Make sure the flag for the Improved command line interface is enabled.
     * Only clusters that are version 2.18 or later are supported.
+    * Only Linux and Mac OS are currently supported
+
+To enable the Improved Command Line Interface:
+
+1. Press the *Tools and Settings* icon, then *General*.
+2. Press *Workloads*, then enable the *Improved Command Line Interface* toggle.
 
 To install the Improved Command Line Interface:
 
@@ -28,36 +35,9 @@ To install the Improved Command Line Interface:
 4. Copy the installer command to your clipboard, then paste it into a terminal window and run the command.
 5. Follow the instruction prompts during the installation process. Press `Enter` to use the default values (recommended).
 
-### Install Command Auto-Completion
-
-Auto-completion is installed automatically.
-
-To install it manually:
-
-* For *ZSH*, edit the file `~/.zshrc` and add the following lines:
-
-```zsh
-autoload -U compinit; compinit -i
-source <(runai completion zsh)
-```
-
-* For *bash*, install the bash-completion package. Choose your operating system:
-  
-  * Mac: `brew install bash-completion`
-  * Ubuntu/Debian: `sudo apt-get install bash-completion`
-  * Fedora/Centos: `sudo yum install bash-completion`
-  
-Then, edit the file `~/.bashrc` and add the following lines:
-
-```bash
-[[ -r “/usr/local/etc/profile.d/bash_completion.sh” ]] && . “/usr/local/etc/profile.d/bash_completion.sh”
-
-source <(runai completion bash)
-```
-
 ### Authenticating your CLI
 
-After you have configured your shell, you will need to login to authenticate the CLI.
+You will need to login to authenticate the CLI.
 In your terminal widow run:
 
 `runai login`
@@ -94,6 +74,35 @@ To see the current configuration run:
 
 `runai config generate --json`
 
+
+### Install Command Auto-Completion
+
+Auto-completion is installed automatically.
+
+To install auto-completion manually:
+
+* For *ZSH*, edit the file `~/.zshrc` and add the following lines:
+
+```zsh
+autoload -U compinit; compinit -i
+source <(runai completion zsh)
+```
+
+* For *bash*, install the bash-completion package. Choose your operating system:
+  
+  * Mac: `brew install bash-completion`
+  * Ubuntu/Debian: `sudo apt-get install bash-completion`
+  * Fedora/Centos: `sudo yum install bash-completion`
+  
+Then, edit the file `~/.bashrc` and add the following lines:
+
+```bash
+[[ -r “/usr/local/etc/profile.d/bash_completion.sh” ]] && . “/usr/local/etc/profile.d/bash_completion.sh”
+
+source <(runai completion bash)
+```
+
+
 ### Options
 
 You can use the following configuration options with your CLI to customize your CLI.
@@ -110,7 +119,7 @@ You can use the following configuration options with your CLI to customize your 
 
 * [runai cluster](runai_cluster.md)&mdash;cluster management
 * [runai config](runai_config.md)&mdash;configuration management
-* [runai list](runai_list.md)&mdash;[Deprecated] display resource list. By default displays the job list
+* [runai list](runai_list.md)&mdash;(Deprecated) display resource list. By default displays the job list
 * [runai login](runai_login.md)&mdash;login to the control plane
 * [runai logout](runai_logout.md)&mdash;logout from control plane
 * [runai node](runai_node.md)&mdash;node management
